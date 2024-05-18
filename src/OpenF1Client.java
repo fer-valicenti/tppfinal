@@ -20,7 +20,8 @@ public class OpenF1Client {
 
         try {
             //solicitamos peticion
-            URL url = new URL("https://openf1.org/api/drivers");
+            URL url = new URL("https://api.openf1.org/v1/drivers" +
+                    "\n");
             HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
             conexion.setRequestMethod("GET");
             conexion.connect();

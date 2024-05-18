@@ -72,7 +72,16 @@ public class F1JuegoGUI extends JFrame {
                 tiemposDeVuelta[i] += calcularTiempoDeVuelta(driverList.get(i), circuit);
             }
         }
-        return "Empezaste la carrera con el piloto: " + driver.getNombre() + "En el circuito: " + circuit.getName();
+
+        int ganador=0;
+        for(int i=0; i < tiemposDeVuelta.length; i++)
+        {
+            if(tiemposDeVuelta[i] < tiemposDeVuelta[ganador])
+            {
+                ganador=1;
+            }
+        }
+        return "Ganador: " + driverList.get(ganador) + "\nTiempo total: " + tiemposDeVuelta[ganador] + "\nEn el circuito: " + circuit.getCircuit_short_name();
     }
 
     private double calcularOvertake(Driver driver)
